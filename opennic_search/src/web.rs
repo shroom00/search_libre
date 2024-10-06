@@ -285,7 +285,8 @@ static CONFIG: Lazy<Config> = Lazy::new(|| load_config());
 #[actix_web::main]
 pub async fn main() -> std::io::Result<()> {
     init_py();
-    let tera = Tera::new("./templates/*").unwrap();
+    let mut tera = Tera::new("./templates/*").unwrap();
+    tera.autoescape_on(vec![".html", ".htm", ".xml", ".tera"]);
     let server = match HttpServer::new(move || {
         {
             App::new()
