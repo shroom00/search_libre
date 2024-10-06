@@ -433,11 +433,12 @@ def search(search_term: str, storage_path: str, pagenum: int = 1):
         if not query_is_valid(query):
             return {"valid": False}
 
-        results_page = searcher.search_page(query, terms=True, pagenum=pagenum)
+        pagelen = 10
+        results_page = searcher.search_page(query, terms=True, pagenum=pagenum, pagelen=pagelen)
         results = results_page.results
         num_results = results.estimated_length()
-        has_exact = results.has_exact_length()
         is_last = results_page.is_last_page()
+        num_results = results_page.pagecount * pagelen if not is_last else ((results_page.pagecount - 1) * pagelen) + results_page.pagelen
         return {
             "valid": True,
             "results": [
@@ -453,7 +454,7 @@ def search(search_term: str, storage_path: str, pagenum: int = 1):
             ],
             "duration": results.runtime,
             "total": num_results,
-            "exact": has_exact,
+            "exact": is_last,
             "last": is_last,
             "maxpage": results_page.pagecount,
         }
