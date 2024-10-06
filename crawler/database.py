@@ -91,12 +91,13 @@ class SearchDB:
                 "description",
             ]:  # these attributes should be unchanged if the site is dead
                 del exists_fields[attr]
-        self.index.writer().update_document(
+        writer = self.index.writer()
+        writer.update_document(
             **default_fields,
             fields_if_exists=exists_fields,
             comparison_functions={"depth": min},
         )
-        self.index.writer().commit(optimize=True, merge=True)
+        writer.commit(optimize=True, merge=True)
 
     def process_spider_output(self, response: HtmlResponse, result, spider: Spider):
         self.add_page_record(response)
