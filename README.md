@@ -11,17 +11,25 @@ If you would like to host your own version of this site, for development purpose
 - Create a Python virtual environment inside the empty `.venv` folder.
 - This has been tested with **Python 3.10**.
 
-### 2. Build the OpenNIC Search Package
+### 2. Install Python dependencies
+
+- Install Python dependencies using pip.
+
+  ```bash
+  pip install -r requirements.txt
+  ```
+  
+### 3. Build the OpenNIC Search Package
 
 - While in the `opennic_search` folder, run:
 
   ```bash
-  maturin develop
+  maturin develop -r
   ```
 
   _Note: You can safely ignore the warning about the `extension-module` feature not being enabled._
 
-### 3. Compile the Project
+### 4. Compile the Project
 
 - Build the project using Cargo:
 
@@ -29,7 +37,7 @@ If you would like to host your own version of this site, for development purpose
   cargo build -r
   ```
 
-### 4. Host the Website
+### 5. Host the Website
 
 - After building, run the following command to host the site:
 
@@ -37,7 +45,7 @@ If you would like to host your own version of this site, for development purpose
   cargo run -r
   ```
 
-### 5. Start the Crawler
+### 6. Start the Crawler
 
 - Start the Python crawler (with the venv activated!):
 
