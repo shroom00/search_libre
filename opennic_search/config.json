@@ -1,0 +1,6 @@
+{
+  "hostname": "search.libre",
+  "port": 80,
+  "bind_address": "127.0.0.1",
+  "restrict_hostname": false
+}

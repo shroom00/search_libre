@@ -1,0 +1,13 @@
+<footer>
+  <ul class="footer">
+    <li><a href="/">Home</a></li>
+    |
+    <li><a href="/faq">FAQ</a></li>
+    |
+    <li>
+      <a href="https://github.com/shroom00/search_libre"
+        ><img src="/img/github.svg" style="height: 2em"
+      /></a>
+    </li>
+  </ul>
+</footer>

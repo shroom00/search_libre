@@ -1,0 +1,6 @@
+REFRESH_RECORDS = object()
+RECHECK_DB_FOR_NETLOC = object()
+GET_START_URLS = object()
+URL_EXISTS = object()
+TLD_FILTER_CHECK = object()
+URL_FILTER_CHECK = object()

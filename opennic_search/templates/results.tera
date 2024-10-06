@@ -1,0 +1,69 @@
+{% import "macros.tera" as macros %}
+<!DOCTYPE html>
+<html>
+  {{ macros::head(title="search.libre | {{ query }}") }}
+  <body>
+    <header>
+      <a href="/"><img class="logo small" /></a>
+      <form action="/search" method="get" id="searchbar">
+        <input
+          type="text"
+          name="q"
+          id="search"
+          value="{{ query }}"
+          placeholder="Search..."
+          required
+        />
+        <button type="submit">Search</button>
+      </form>
+    </header>
+    <div class="results">
+      <p><a href="/add_url">Not seeing your site in results?</a></p>
+      {% if maxpage > 0 %} {% for result in results %}
+      <div class="result">
+        <h1 class="url-title">{{ result.title }}</h1>
+        <a class="url" href="{{ result.url }}">{{ result.url }}</a>
+        <p class="description">{{ result.snippet | safe }}</p>
+      </div>
+      {% endfor %} {% set result_num = ((pagenum - 1) * 10) + 1 %}
+      <p id="results-info">
+        Found {{ result_num }}-{{ results | length + result_num - 1}} of
+        {{ total }} result(s) in {{ duration | round(precision=3) }} seconds
+      </p>
+      {% else %}
+      <div>
+        <p>
+          {% if valid %} No results found for "<em>{{ query }}</em
+          >". {% else %} "<em>{{ query }}</em
+          >" is an invalid search term, sorry. {% endif %}
+        </p>
+      </div>
+      {% endif %}
+    </div>
+    <div class="expand-height"></div>
+
+    {% if maxpage > 0 %}
+    <div id="navigation">
+      {% if pagenum != 1 %}
+      <a style="display: inline" href="/search?q={{ query }}&p=1">&lt;&lt;</a>
+      <a
+        style="display: inline"
+        href="/search?q={{ query }}&p={{ pagenum - 1 }}"
+        >{{ pagenum - 1 }}</a
+      >
+      {% endif %}
+      <p style="display: inline">{{ pagenum }}</p>
+      {% if not is_last %}
+      <a
+        style="display: inline"
+        href="/search?q={{ query }}&p={{ pagenum + 1 }}"
+        >{{ pagenum + 1 }}</a
+      >
+      <a style="display: inline" href="/search?q={{ query }}&p={{ maxpage }}"
+        >&gt;&gt;</a
+      >
+      {% endif %}
+    </div>
+    {% endif %} {% include "footer.tera" %}
+  </body>
+</html>

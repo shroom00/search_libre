@@ -1,0 +1,41 @@
+{% import "macros.tera" as macros %}
+<!DOCTYPE html>
+<html>
+  {{ macros::head(title="search.libre | FAQ") }}
+  <body class="home">
+    <div id="content">
+      <h1 class="title">Frequently Asked Questions</h1>
+      <h2 class="question">What is the crawlers User-Agent?</h2>
+      <p class="answer">
+        The crawlers User-Agent is <em>search.libre</em>.
+      </p>
+      <h2 class="question">
+        My site isn't showing up in search results. What do I do?
+      </h2>
+      <p class="answer">
+        If your site isn't referenced by any other site the crawler will never
+        find it by itself. To get your site crawled, you can add it to the queue
+        <a href="/add_url">here</a>. Note that the queue is crawled every half
+        an hour, and the queue might be long, so you may have to wait before
+        your site starts showing up in search results.
+      </p>
+      <h2 class="question">
+        Private sections of my site are appearing in search results. How can I
+        remove them?
+      </h2>
+      <p class="answer">
+        First, update your sites
+        <a href="https://en.wikipedia.org/wiki/Robots.txt">robots.txt</a>. Then,
+        you can force the crawler to crawl your site again by adding it to the
+        queue <a href="/add_url">here</a>. With the new robots.txt in place,
+        disallowed URLs for your site will be removed from the database.
+      </p>
+      <h2 class="question">Where can I see the source code of this site?</h2>
+      <p class="answer">
+        The source code is available on
+        <a href="https://github.com/shroom00/search_libre" class="">github</a>.
+      </p>
+    </div>
+    {% include "footer.tera" %}
+  </body>
+</html>

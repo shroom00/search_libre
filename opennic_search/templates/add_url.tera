@@ -1,0 +1,69 @@
+{% import "macros.tera" as macros %}
+<!DOCTYPE html>
+<html>
+  {{ macros::head(title="search.libre | Add URL", extras='
+  <script src="/js/add_url.js" defer></script>
+  ') }}
+  <body class="home">
+    <div id="content">
+      <h1 class="title">Add URL To Crawl Queue</h1>
+      <div id="url-box">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Id veritatis,
+          labore numquam beatae enim nemo, fuga quaerat eius neque quisquam
+          reprehenderit odit qui consequuntur eos voluptatum non architecto!
+          Rerum, et.
+        </p>
+        <p>Things to note:</p>
+        <ul>
+          <li>Only http/https schemes are allowed.</li>
+          <li>URL Fragments are ignored.</li>
+          <li>Query Parameters are ignored.</li>
+          <li>
+            The crawler visits the website root, so make sure the pages you want
+            to be visible are accessible from there!
+          </li>
+        </ul>
+        <p>These examples illustrate this:</p>
+        <ul>
+          <li><em>ftp://example.geek/</em> is invalid</li>
+          <li>
+            <em>http://example.geek/?q=1</em> becomes
+            <em>http://example.geek/</em>
+          </li>
+          <li>
+            <em>http://example.geek/#fragment</em> becomes
+            <em>http://example.geek/</em>
+          </li>
+          <li>
+            <em>http://example.geek/some/dir/</em> becomes
+            <em>http://example.geek/</em>
+          </li>
+        </ul>
+        <div>
+          <form
+            id="url-form"
+            action="/add_url"
+            method="post"
+            target="url_frame"
+          >
+            <input
+              type="url"
+              id="url"
+              name="url"
+              required
+              pattern="https?://.+\.[a-zA-Z]+"
+              placeholder="http(s)://example.geek"
+              title="URL must start with http:// or https://, followed by a domain and TLD"
+            />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+      <noscript>
+        <iframe name="url_frame" class="transparent-iframe"></iframe>
+      </noscript>
+    </div>
+    {% include "footer.tera" %}
+  </body>
+</html>

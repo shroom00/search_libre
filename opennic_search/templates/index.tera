@@ -1,0 +1,17 @@
+{% import "macros.tera" as macros %}
+<!DOCTYPE html>
+<html>
+  {{ macros::head(title="search.libre | An OpenNIC Search Engine") }}
+  <body class="home">
+    <div id="index-box">
+      <img class="logo" />
+      <div class="search-bar">
+        <form id="searchbar" action="/search" method="get">
+          <input type="text" name="q" placeholder="Search..." required />
+          <button type="submit" class="search-button">Search</button>
+        </form>
+      </div>
+    </div>
+    {% include "footer.tera" %}
+  </body>
+</html>

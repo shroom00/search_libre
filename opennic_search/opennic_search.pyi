@@ -1,0 +1,9 @@
+from typing import List, Optional
+
+
+def create_db(fp: str): ...
+def add_url(fp: str, url: str, ip: int, rate_limit_seconds: Optional[int]): ...
+def get_urls(fp: str) -> List[str]: ...
+
+class RateLimitExceeded(Exception):
+    wait_time: int
