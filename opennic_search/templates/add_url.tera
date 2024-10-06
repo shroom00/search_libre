@@ -9,12 +9,6 @@
     <div id="content">
       <h1 class="title">Add URL To Crawl Queue</h1>
       <div id="url-box">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Id veritatis,
-          labore numquam beatae enim nemo, fuga quaerat eius neque quisquam
-          reprehenderit odit qui consequuntur eos voluptatum non architecto!
-          Rerum, et.
-        </p>
         <p>Things to note:</p>
         <ul>
           <li>Only http/https schemes are allowed.</li>
