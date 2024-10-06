@@ -1,7 +1,9 @@
-{% import "macros.tera" as macros %}
 <!DOCTYPE html>
 <html>
-  {{ macros::head(title="search.libre | An OpenNIC Search Engine") }}
+  <head>
+    <title>search.libre | An OpenNIC Search Engine</title>
+    {% include "head.tera" %}
+  </head>
   <body class="home">
     <div id="index-box">
       <img class="logo" />

@@ -1,9 +1,10 @@
-{% import "macros.tera" as macros %}
 <!DOCTYPE html>
 <html>
-  {{ macros::head(title="search.libre | Add URL", extras='
-  <script src="/js/add_url.js" defer></script>
-  ') }}
+  <head>
+    <title>search.libre | Add URL</title>
+    <script src="/js/add_url.js" defer></script>
+    {% include "head.tera" %}
+  </head>
   <body class="home">
     <div id="content">
       <h1 class="title">Add URL To Crawl Queue</h1>

@@ -1,7 +1,9 @@
-{% import "macros.tera" as macros %}
 <!DOCTYPE html>
 <html>
-  {{ macros::head(title="search.libre | FAQ") }}
+  <head>
+    <title>search.libre | FAQ</title>
+    {% include "head.tera" %}
+  </head>
   <body class="home">
     <div id="content">
       <h1 class="title">Frequently Asked Questions</h1>
