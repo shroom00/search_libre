@@ -1,6 +1,6 @@
 # Search.Libre: An OpenNIC Search Engine
 
-~~The search engine is available at [search.libre:45260](http://search.libre:45260).~~
+The search engine is available at [search.libre:45260](http://search.libre:45260).
 
 ~~The search engine is currently down, while I try to rewrite the web crawler.~~ Previously, crawling progress has been almost 0, due to the crawler taking up too much RAM.
 
